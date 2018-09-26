@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_insert"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="@string/add_new_item"
+        app:showAsAction="ifRoom|withText" />
+    <item
+        android:id="@+id/clear_complete"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="@string/clear_found_items"
+        app:showAsAction="always" />
+</menu>

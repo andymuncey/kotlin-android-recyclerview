@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ShopList</string>
+    <string name="add_new_item">Add new item</string>
+    <string name="clear_found_items">Clear found item</string>
+    <string name="apples">apples</string>
+    <string name="_1">1</string>
+    <string name="plus_sign">+</string>
+</resources>
