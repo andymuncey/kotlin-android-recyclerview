@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         handleDragging()
 
         loadList()
-
     }
 
     private fun saveList(){
@@ -82,7 +81,6 @@ class MainActivity : AppCompatActivity() {
         touchHelper.attachToRecyclerView(rvShoppingList)
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return super.onCreateOptionsMenu(menu)
@@ -98,7 +96,6 @@ class MainActivity : AppCompatActivity() {
             addItem()
             return true
         }
-
         return super.onOptionsItemSelected(item)
     }
 
@@ -108,8 +105,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
             val newItem = data?.getSerializableExtra("item") as ShoppingListItem
@@ -131,8 +126,5 @@ class MainActivity : AppCompatActivity() {
         override fun onSwiped(recyclerView: RecyclerView.ViewHolder, direction: Int) {
 
         }
-
     }
-
-
 }

@@ -24,15 +24,10 @@ class AddItemActivity : AppCompatActivity() {
         etItem.setOnEditorActionListener(enterHandler)
         etCount.setOnEditorActionListener(enterHandler)
 
-
         etItem.requestFocus()
         //display keyboard
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
-
-
     }
-
-
 
     private fun incrementCount() {
         var userCount = etCount.text.toString().toIntOrNull()
@@ -50,7 +45,6 @@ class AddItemActivity : AppCompatActivity() {
         val userCount = etCount.text.toString().toIntOrNull()
         return if (userCount == null) 1 else userCount
     }
-
 
     inner class EnterHandler : TextView.OnEditorActionListener {
         override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
@@ -74,7 +68,5 @@ class AddItemActivity : AppCompatActivity() {
             //we have not consumed this event (i.e. different key pressed or no valid product entered yet
             return false
         }
-
     }
-
 }

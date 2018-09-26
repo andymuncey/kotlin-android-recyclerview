@@ -13,14 +13,6 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     var list = mutableListOf<ShoppingListItem>()
 
-//    init{
-//        list.add(ShoppingListItem("bread",2))
-//        val cheese = ShoppingListItem("cheese",1)
-//        cheese.purchased = true
-//        list.add(cheese)
-//
-//    }
-
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.card_layout, viewGroup,false)
         return ViewHolder(view)}
@@ -63,26 +55,15 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         notifyItemInserted(list.lastIndex)
     }
 
-
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         init{
             itemView.setOnClickListener {
                 list[adapterPosition].purchased = !list[adapterPosition].purchased
-                toggleStrikeThrough(itemView.tvProduct, list[adapterPosition].purchased)
-                toggleStrikeThrough(itemView.tvCount, list[adapterPosition].purchased)
+                itemView.tvProduct.toggleStrikeThrough(list[adapterPosition].purchased)
+                itemView.tvCount.toggleStrikeThrough(list[adapterPosition].purchased)
             }
         }
     }
-
-
-    private fun toggleStrikeThrough(textView: TextView, on: Boolean){
-        if (on){
-            textView.paintFlags = textView.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-        } else {
-            textView.paintFlags = textView.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
-        }
-    }
-
 
 }
 
