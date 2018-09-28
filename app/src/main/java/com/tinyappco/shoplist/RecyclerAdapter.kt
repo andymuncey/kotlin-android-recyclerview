@@ -32,22 +32,14 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 
-    override fun onViewRecycled(holder: ViewHolder) {
-        super.onViewRecycled(holder)
-        holder.itemView.tvProduct.toggleStrikeThrough(false)
-        holder.itemView.tvCount.toggleStrikeThrough(false)
-    }
-
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val cardView = viewHolder.itemView
         val item = list[position]
         cardView.tvCount.text = item.count.toString()
         cardView.tvProduct.text = item.name
 
-        if (item.purchased){
-            cardView.tvProduct.toggleStrikeThrough(true)
-            cardView.tvCount.toggleStrikeThrough(true)
-        }
+        cardView.tvProduct.toggleStrikeThrough(item.purchased)
+        cardView.tvCount.toggleStrikeThrough(item.purchased)
     }
 
     fun addItem(item: ShoppingListItem){
