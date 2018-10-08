@@ -12,4 +12,12 @@
         android:icon="@android:drawable/ic_menu_close_clear_cancel"
         android:title="@string/clear_found_items"
         app:showAsAction="always" />
+
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+
 </menu>

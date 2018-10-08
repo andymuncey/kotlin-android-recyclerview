@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference
+        android:key="hide_single_count"
+        android:title="@string/hide_count_1"
+        android:summary="@string/hide_count_1_description"
+        android:defaultValue="false" />
+</PreferenceScreen>
