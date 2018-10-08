@@ -33,6 +33,14 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
         val cardView = viewHolder.itemView
         val item = list[position]
         cardView.tvCount.text = item.count.toString()
+
+        if (item.count == 1){
+            cardView.tvCount.visibility = View.GONE
+        } else {
+            cardView.tvCount.visibility = View.VISIBLE
+        }
+
+
         cardView.tvProduct.text = item.name
 
         cardView.tvProduct.toggleStrikeThrough(item.purchased)
