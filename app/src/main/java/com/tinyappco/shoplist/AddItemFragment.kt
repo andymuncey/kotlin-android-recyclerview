@@ -2,17 +2,18 @@ package com.tinyappco.shoplist
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
+
 import android.view.*
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_add_item.*
 
 class AddItemFragment : Fragment() {
 
     private var addItemListener : AddItemFragmentListener? = null
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is AddItemFragmentListener) {
             addItemListener = context
