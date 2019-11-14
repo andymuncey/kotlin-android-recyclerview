@@ -3,8 +3,6 @@ package com.tinyappco.shoplist
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.content.res.Configuration
-
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -43,17 +41,17 @@ class MainActivity : AppCompatActivity(), AddItemFragment.AddItemFragmentListene
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        if (item?.itemId == R.id.clear_complete){
+        if (item.itemId == R.id.clear_complete){
             listFrag.adapter.removeFoundItems()
             return true
         }
-        if (item?.itemId == R.id.menu_insert){
+        if (item.itemId == R.id.menu_insert){
             addItem()
             return true
         }
-        if  (item?.itemId == R.id.action_settings){
+        if  (item.itemId == R.id.action_settings){
             val intent = Intent(this,SettingsActivity::class.java)
             startActivity(intent)
         }

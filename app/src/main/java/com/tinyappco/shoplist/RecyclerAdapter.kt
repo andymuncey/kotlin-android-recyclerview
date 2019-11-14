@@ -1,9 +1,7 @@
 package com.tinyappco.shoplist
 
-import android.content.Context
 import android.content.SharedPreferences
-import android.preference.PreferenceManager
-
+import androidx.preference.PreferenceManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,9 +12,9 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     var list = mutableListOf<ShoppingListItem>()
 
-    //must keep a refrence to this, otherwise lost
+    //must keep a reference to this, otherwise lost
     //see: https://developer.android.com/reference/android/content/SharedPreferences#registerOnSharedPreferenceChangeListener(android.content.SharedPreferences.OnSharedPreferenceChangeListener)
-    var prefsChangedListener = SharedPreferences.OnSharedPreferenceChangeListener { sharedPreferences, key ->
+    private var prefsChangedListener = SharedPreferences.OnSharedPreferenceChangeListener { sharedPreferences, key ->
 
         notifyDataSetChanged()
     }

@@ -38,7 +38,7 @@ class AddItemFragment : Fragment() {
 
         etItem.requestFocus()
         //display keyboard
-        activity?.getWindow()?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
+        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
     }
 
     private fun incrementCount() {
@@ -50,12 +50,11 @@ class AddItemFragment : Fragment() {
     }
 
     private fun validProductName()  : Boolean {
-        return etItem.text.length > 0
+        return etItem.text.isNotEmpty()
     }
 
     private fun productCount() : Int {
-        val userCount = etCount.text.toString().toIntOrNull()
-        return if (userCount == null) 1 else userCount
+        return etCount.text.toString().toIntOrNull() ?: 1
     }
 
     interface AddItemFragmentListener {
@@ -65,7 +64,7 @@ class AddItemFragment : Fragment() {
     inner class EnterHandler : TextView.OnEditorActionListener {
         override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
             //user has pressed tick button on soft keyboard, or pressed enter key
-            if (actionId == EditorInfo.IME_ACTION_DONE || KeyEvent.KEYCODE_ENTER.equals(event?.keyCode)) {
+            if (actionId == EditorInfo.IME_ACTION_DONE || KeyEvent.KEYCODE_ENTER == event?.keyCode) {
 
                 if (validProductName()) {
 
