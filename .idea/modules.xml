@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AS Projects-kotlin-android-recyclerview.iml" filepath="$PROJECT_DIR$/AS Projects-kotlin-android-recyclerview.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AndroidStudioProjects-kotlin-android-recyclerview.iml" filepath="$PROJECT_DIR$/.idea/modules/AndroidStudioProjects-kotlin-android-recyclerview.iml" group="kotlin-android-recyclerview" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="kotlin-android-recyclerview/app" />
       <module fileurl="file://$PROJECT_DIR$/kotlin-android-recyclerview.iml" filepath="$PROJECT_DIR$/kotlin-android-recyclerview.iml" />
     </modules>
   </component>
