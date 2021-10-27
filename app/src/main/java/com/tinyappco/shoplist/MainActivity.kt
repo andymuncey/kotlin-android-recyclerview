@@ -8,7 +8,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import com.tinyappco.shoplist.databinding.ActivityMainBinding
 
 

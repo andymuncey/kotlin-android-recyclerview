@@ -23,11 +23,12 @@ class ShopListFragment : Fragment() {
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         _binding = FragmentListBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        return binding.root
     }
 
 
