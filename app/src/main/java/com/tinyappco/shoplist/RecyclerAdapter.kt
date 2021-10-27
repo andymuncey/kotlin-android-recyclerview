@@ -8,9 +8,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.tinyappco.shoplist.databinding.CardLayoutBinding
 
-
-//import kotlinx.android.synthetic.main.card_layout.view.*
-
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     var list = mutableListOf<ShoppingListItem>()
@@ -84,9 +81,9 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
         init{
               itemView.setOnClickListener {
-                list[adapterPosition].purchased = !list[adapterPosition].purchased
-                binding.tvProduct.toggleStrikeThrough(list[adapterPosition].purchased)
-                binding.tvCount.toggleStrikeThrough(list[adapterPosition].purchased)
+                list[bindingAdapterPosition].purchased = !list[bindingAdapterPosition].purchased
+                binding.tvProduct.toggleStrikeThrough(list[bindingAdapterPosition].purchased)
+                binding.tvCount.toggleStrikeThrough(list[bindingAdapterPosition].purchased)
             }
         }
     }

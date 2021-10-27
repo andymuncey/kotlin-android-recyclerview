@@ -101,15 +101,15 @@ class ShopListFragment : Fragment() {
         }
 
         override fun onMove(recyclerView: RecyclerView, viewHolder: RecyclerView.ViewHolder, target: RecyclerView.ViewHolder): Boolean {
-            val movedItem = adapter.list.removeAt(viewHolder.adapterPosition)
-            adapter.list.add(target.adapterPosition, movedItem)
-            adapter.notifyItemMoved(viewHolder.adapterPosition,target.adapterPosition)
+            val movedItem = adapter.list.removeAt(viewHolder.bindingAdapterPosition)
+            adapter.list.add(target.bindingAdapterPosition, movedItem)
+            adapter.notifyItemMoved(viewHolder.bindingAdapterPosition,target.bindingAdapterPosition)
             return true
         }
 
         override fun onSwiped(recyclerView: RecyclerView.ViewHolder, direction: Int) {
-            adapter.list.removeAt(recyclerView.adapterPosition)
-            adapter.notifyItemRemoved(recyclerView.adapterPosition)
+            adapter.list.removeAt(recyclerView.bindingAdapterPosition)
+            adapter.notifyItemRemoved(recyclerView.bindingAdapterPosition)
         }
     }
 
