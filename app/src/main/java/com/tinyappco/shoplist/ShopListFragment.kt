@@ -71,9 +71,8 @@ class ShopListFragment : Fragment() {
     }
 
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         adapter = RecyclerAdapter()
         binding.rvShoppingList.adapter = adapter
 
@@ -83,7 +82,6 @@ class ShopListFragment : Fragment() {
         handleDragging()
 
         loadList()
-
     }
 
 

@@ -30,9 +30,8 @@ class AddItemFragment : Fragment() {
         return view
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.btnIncrementCount.setOnClickListener{
             incrementCount()
         }
@@ -45,6 +44,7 @@ class AddItemFragment : Fragment() {
         //display keyboard
         activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
     }
+
 
     private fun incrementCount() {
         var userCount = binding.etCount.text.toString().toIntOrNull()
