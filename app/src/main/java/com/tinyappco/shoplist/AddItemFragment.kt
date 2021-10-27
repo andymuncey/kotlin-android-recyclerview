@@ -7,9 +7,12 @@ import android.view.*
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_add_item.*
+import com.tinyappco.shoplist.databinding.FragmentAddItemBinding
 
 class AddItemFragment : Fragment() {
+
+    private var _binding : FragmentAddItemBinding? = null
+    private val binding get() = _binding!!
 
     private var addItemListener : AddItemFragmentListener? = null
 
@@ -22,39 +25,41 @@ class AddItemFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_add_item, container, false)
+        _binding = FragmentAddItemBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        btnIncrementCount.setOnClickListener{
+        binding.btnIncrementCount.setOnClickListener{
             incrementCount()
         }
 
         val enterHandler = EnterHandler()
-        etItem.setOnEditorActionListener(enterHandler)
-        etCount.setOnEditorActionListener(enterHandler)
+        binding.etItem.setOnEditorActionListener(enterHandler)
+        binding.etCount.setOnEditorActionListener(enterHandler)
 
-        etItem.requestFocus()
+        binding.etItem.requestFocus()
         //display keyboard
         activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE)
     }
 
     private fun incrementCount() {
-        var userCount = etCount.text.toString().toIntOrNull()
+        var userCount = binding.etCount.text.toString().toIntOrNull()
         if (userCount == null) {
             userCount = 1
         }
-        etCount.setText((userCount + 1).toString())
+        binding.etCount.setText((userCount + 1).toString())
     }
 
     private fun validProductName()  : Boolean {
-        return etItem.text.isNotEmpty()
+        return binding.etItem.text.isNotEmpty()
     }
 
     private fun productCount() : Int {
-        return etCount.text.toString().toIntOrNull() ?: 1
+        return binding.etCount.text.toString().toIntOrNull() ?: 1
     }
 
     interface AddItemFragmentListener {
@@ -68,12 +73,12 @@ class AddItemFragment : Fragment() {
 
                 if (validProductName()) {
 
-                    val product = ShoppingListItem(etItem.text.toString(),productCount())
+                    val product = ShoppingListItem(binding.etItem.text.toString(),productCount())
 
                     addItemListener?.onItemAdded(product)
 
-                    etItem.setText("")
-                    etCount.setText("1")
+                    binding.etItem.setText("")
+                    binding.etCount.setText("1")
 
                     //we have consumed (handled) this event (key press)
                     return true

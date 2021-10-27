@@ -6,11 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.card_layout.view.*
+import com.tinyappco.shoplist.databinding.CardLayoutBinding
+
+
+//import kotlinx.android.synthetic.main.card_layout.view.*
 
 class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     var list = mutableListOf<ShoppingListItem>()
+
 
     //must keep a reference to this, otherwise lost
     //see: https://developer.android.com/reference/android/content/SharedPreferences#registerOnSharedPreferenceChangeListener(android.content.SharedPreferences.OnSharedPreferenceChangeListener)
@@ -45,23 +49,25 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val cardView = viewHolder.itemView
+        //val cardView = viewHolder.itemView
         val item = list[position]
-        cardView.tvCount.text = item.count.toString()
+
+
+        viewHolder.binding.tvCount.text = item.count.toString()
 
         val prefs = PreferenceManager.getDefaultSharedPreferences(viewHolder.itemView.context)
         val hideSingleCount = prefs.getBoolean("hide_single_count",false)
 
         if (item.count == 1 && hideSingleCount){
-            cardView.tvCount.visibility = View.GONE
+            viewHolder.binding.tvCount.visibility = View.GONE
         } else {
-            cardView.tvCount.visibility = View.VISIBLE
+            viewHolder.binding.tvCount.visibility = View.VISIBLE
         }
 
-        cardView.tvProduct.text = item.name
+        viewHolder.binding.tvProduct.text = item.name
 
-        cardView.tvProduct.toggleStrikeThrough(item.purchased)
-        cardView.tvCount.toggleStrikeThrough(item.purchased)
+        viewHolder.binding.tvProduct.toggleStrikeThrough(item.purchased)
+        viewHolder.binding.tvCount.toggleStrikeThrough(item.purchased)
     }
 
     
@@ -71,11 +77,16 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+
+
+        val binding = CardLayoutBinding.bind(itemView)
+
         init{
-            itemView.setOnClickListener {
+              itemView.setOnClickListener {
                 list[adapterPosition].purchased = !list[adapterPosition].purchased
-                itemView.tvProduct.toggleStrikeThrough(list[adapterPosition].purchased)
-                itemView.tvCount.toggleStrikeThrough(list[adapterPosition].purchased)
+                binding.tvProduct.toggleStrikeThrough(list[adapterPosition].purchased)
+                binding.tvCount.toggleStrikeThrough(list[adapterPosition].purchased)
             }
         }
     }

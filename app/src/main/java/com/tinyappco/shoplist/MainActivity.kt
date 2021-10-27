@@ -8,7 +8,8 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import androidx.fragment.app.Fragment
+import com.tinyappco.shoplist.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity(), AddItemFragment.AddItemFragmentListener {
@@ -21,13 +22,18 @@ class MainActivity : AppCompatActivity(), AddItemFragment.AddItemFragmentListene
     }
 
     private lateinit var listFrag: ShopListFragment
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
+        setSupportActionBar(binding.toolbar)
 
-        listFrag = frList as ShopListFragment
+        //listFrag = binding.frList as ShopListFragment //this doesn't work - maybe due to different parent view in each layout
+        listFrag = supportFragmentManager.findFragmentById(R.id.frList) as ShopListFragment
+        //todo: find out how to do this with view binding
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

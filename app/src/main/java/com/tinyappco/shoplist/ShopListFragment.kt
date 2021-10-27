@@ -3,9 +3,6 @@ package com.tinyappco.shoplist
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-//import android.support.v7.widget.LinearLayoutManager
-//import android.support.v7.widget.RecyclerView
-//import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,8 +10,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
-import kotlinx.android.synthetic.main.fragment_list.*
+import com.tinyappco.shoplist.databinding.FragmentListBinding
 import java.io.ObjectInputStream
 import java.io.ObjectOutputStream
 
@@ -24,11 +20,14 @@ class ShopListFragment : Fragment() {
     private lateinit var layoutManager: RecyclerView.LayoutManager
     lateinit var adapter: RecyclerAdapter
 
+    private var _binding: FragmentListBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_list, container, false)
+                              savedInstanceState: Bundle?): View {
+        _binding = FragmentListBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
     }
 
 
@@ -76,10 +75,10 @@ class ShopListFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         adapter = RecyclerAdapter()
-        rvShoppingList.adapter = adapter
+        binding.rvShoppingList.adapter = adapter
 
         layoutManager = LinearLayoutManager(activity)
-        rvShoppingList.layoutManager = layoutManager
+        binding.rvShoppingList.layoutManager = layoutManager
 
         handleDragging()
 
@@ -91,7 +90,7 @@ class ShopListFragment : Fragment() {
     private fun handleDragging(){
         val dragCallback = DragCallback()
         val touchHelper = ItemTouchHelper(dragCallback)
-        touchHelper.attachToRecyclerView(rvShoppingList)
+        touchHelper.attachToRecyclerView(binding.rvShoppingList)
     }
 
 
