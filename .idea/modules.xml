@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlin-android-recyclerview-new.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlin-android-recyclerview-new.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/kotlin-android-recyclerview-new.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/kotlin-android-recyclerview-new.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/kotlin-android-recyclerview-2022.iml" filepath="$PROJECT_DIR$/.idea/modules/kotlin-android-recyclerview-2022.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/kotlin-android-recyclerview-2022.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/kotlin-android-recyclerview-2022.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/kotlin-android-recyclerview-2022.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/kotlin-android-recyclerview-2022.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/kotlin-android-recyclerview-2022.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/kotlin-android-recyclerview-2022.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/kotlin-android-recyclerview-2022.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/kotlin-android-recyclerview-2022.app.unitTest.iml" />
     </modules>
   </component>
 </project>
